@@ -1,7 +1,7 @@
 import React, {useMemo} from "react";
 import {SectionList, StyleSheet, TouchableOpacity, View} from 'react-native'
 import {Header, SafeArea, Typography} from "@/components";
-import {Octicons} from '@expo/vector-icons';
+import {Octicons, AntDesign} from '@expo/vector-icons';
 import {useTranslation} from "react-i18next";
 
 import {tw} from "@/config";
@@ -38,7 +38,7 @@ export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme,
     <SafeArea>
       <Header title={"Simple Contact App"} titlePosition="center" leftComponent={leftHeader}
               rightComponent={rightHeader}/>
-      <View style={tw`bg-softGray dark:bg-night py-6`}>
+      <View style={tw`bg-softGray dark:bg-night py-6 fill`}>
         <View style={tw`px-4 mb-6`}>
           <Typography style={tw`text-h1 font-bold`}>
             {t('title-page')}
@@ -60,7 +60,7 @@ export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme,
           renderItem={({item, section: {data}, index}) => {
             return (
               <View
-                style={tw.style(`px-2 py-4 bg-neutral dark:bg-darkGray`, index === data.length - 1 ? 'rounded-b-4' : '')}>
+                style={tw.style(`px-2 py-4 bg-neutral dark:bg-darkGray`, index === sections.length - 1 ? 'rounded-b-4' : '')}>
                 <TouchableOpacity onPress={() => refModal.current?.present?.(item)}>
                   <Typography
                     style={tw`text-body-lg`}>{item.firstName + (item.lastName ? ` ${item.lastName}` : '')}</Typography>
@@ -71,6 +71,7 @@ export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme,
           ItemSeparatorComponent={() => <View style={tw`h-[${StyleSheet.hairlineWidth}px]`}/>}
           ListFooterComponent={() => <View style={tw`h-40 pt-4`}><View
             style={tw`h-[1px] bg-black dark:bg-neutral w-10 self-center`}/></View>}
+          ListEmptyComponent={() => <View style={tw`fill center mt-30`}><AntDesign name="contacts" size={40} color={colorFill} /></View>}
         />
       </View>
       <BottomSheetDetailContact ref={refModal} />
