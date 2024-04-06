@@ -11,7 +11,7 @@ import {AppWrapper} from "@/components";
 import {AppStack} from "@/routes";
 import {navigation} from "@/routes/Navigation";
 
-function App() {
+export default function App() {
   return (
     <SafeAreaProvider>
       <Provider store={store}>

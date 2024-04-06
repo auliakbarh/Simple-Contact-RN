@@ -40,3 +40,4 @@ yarn-error.*
 igrored/
 .env
 
+coverage
