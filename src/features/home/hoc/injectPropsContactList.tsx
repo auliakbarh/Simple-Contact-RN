@@ -5,7 +5,7 @@ import {useAppDispatch} from "@/store/store";
 import {tw} from "@/config";
 import {setColorScheme} from "@/store/slice/setting";
 import {IContactListUiProps} from "@/features/home/types/home";
-import {useGetAllListQuery} from "@/store/service/contact";
+import {useGetAllListQuery, useDeleteMutation} from "@/store/service/contact";
 import {IBottomSheetDetailContactMethod} from "@/features/home/components";
 
 export const injectPropsContactList: HOC<IContactListUiProps> = (Component) => (props) => {
@@ -27,6 +27,11 @@ export const injectPropsContactList: HOC<IContactListUiProps> = (Component) => (
   }, [colorScheme, setColorSchemeTw])
 
   const { data } = useGetAllListQuery()
+  const [deleteContact] = useDeleteMutation()
 
-  return <Component {...props} data={data?.data ?? []} toggleTheme={toggleTheme} colorScheme={colorScheme} refModal={refModal} />;
+  const onPressDelete = useCallback((id: string) => {
+    deleteContact(id)
+  }, [])
+
+  return <Component {...props} data={data?.data ?? []} toggleTheme={toggleTheme} colorScheme={colorScheme} refModal={refModal} onPressDelete={onPressDelete} />;
 }

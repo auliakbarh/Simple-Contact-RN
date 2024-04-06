@@ -8,4 +8,5 @@ export interface IContactListUiProps {
   toggleTheme: () => void
   colorScheme: RnColorScheme
   refModal: React.MutableRefObject<IBottomSheetDetailContactMethod | null>
+  onPressDelete: (id: string) => void
 }

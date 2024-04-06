@@ -5,7 +5,7 @@ import {BottomSheetBackdrop, BottomSheetModal, BottomSheetView} from "@gorhom/bo
 import {tw} from "@/config";
 import {Typography} from "@/components/atom/Typography";
 import {useTranslation} from "react-i18next";
-import {Ionicons} from "@expo/vector-icons";
+import {AntDesign, Ionicons} from "@expo/vector-icons";
 import {useColor} from "@/hooks";
 import {Avatar} from "@/features/home/components/Avatar";
 import {isBlank} from "@/utils";
@@ -13,11 +13,12 @@ import {isBlank} from "@/utils";
 export interface IBottomSheetDetailContactProps {
   data?: IContact
   id?: string
+  onPressDelete?: (id: string) => void
 }
 
 export interface IBottomSheetDetailContactMethod extends Partial<BottomSheetModalMethods> {}
 
-export const BottomSheetDetailContact = React.forwardRef<IBottomSheetDetailContactMethod, IBottomSheetDetailContactProps>(({ data, id }, ref) => {
+export const BottomSheetDetailContact = React.forwardRef<IBottomSheetDetailContactMethod, IBottomSheetDetailContactProps>(({ data, id, onPressDelete }, ref) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null)
   const snapPoints = useMemo(() => ['66%', '90%'], [])
   const {t} = useTranslation('messages');
@@ -80,11 +81,22 @@ export const BottomSheetDetailContact = React.forwardRef<IBottomSheetDetailConta
         ? (
           <BottomSheetView style={tw`fill items-center bg-neutral dark:bg-night`}>
             <View style={tw`fill w-full`}>
-              <View style={tw`absolute left-4 right-4 top-4 flex-1 row justify-between items-center z-10`}>
+              <View style={tw`absolute left-4 right-4 flex-1 row justify-between items-center z-10`}>
                 <TouchableOpacity
                   onPress={() => bottomSheetModalRef.current?.dismiss()}
                   testID="close-modal-button">
                   <Ionicons name="chevron-back" size={48} color={colorFill}/>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={() => {
+                    bottomSheetModalRef.current?.dismiss()
+                    if (detail) {
+                      onPressDelete?.(detail.id)
+                    }
+                  }}
+                  testID="close-modal-button">
+                  <AntDesign name="delete" size={35} color={colorFill}/>
                 </TouchableOpacity>
               </View>
 

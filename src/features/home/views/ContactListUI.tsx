@@ -12,7 +12,7 @@ import {SCREEN_NAME} from "@/routes/stacks/types/screenName";
 import {IContactListUiProps} from "@/features/home/types/home";
 import {BottomSheetDetailContact} from "@/features/home/components";
 
-export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme, colorScheme, refModal}) => {
+export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme, colorScheme, refModal, onPressDelete}) => {
   const {t} = useTranslation('home')
   const colorFill = useColor('fill')
 
@@ -74,7 +74,7 @@ export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme,
           ListEmptyComponent={() => <View style={tw`fill center mt-30`}><AntDesign name="contacts" size={40} color={colorFill} /></View>}
         />
       </View>
-      <BottomSheetDetailContact ref={refModal} />
+      <BottomSheetDetailContact ref={refModal} onPressDelete={onPressDelete} />
     </SafeArea>
   )
 }
