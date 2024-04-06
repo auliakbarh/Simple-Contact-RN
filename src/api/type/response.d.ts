@@ -8,7 +8,7 @@ declare interface IContact {
   firstName: string
   lastName: string
   age: number
-  photo: string
+  photo?: string | null
 }
 
 declare type TResponseGetAllContact = IBaseResponseAPI<IContact[]>
