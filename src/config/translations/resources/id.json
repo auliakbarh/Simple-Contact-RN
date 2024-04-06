@@ -1,0 +1,34 @@
+{
+  "screen-name": {
+    "HOME_PAGE": "Simple Contact App",
+    "ADD_NEW_CONTACT_PAGE": "Tambah Kontak Baru"
+  },
+  "general": {
+    "name-app": "Simple Contacts App",
+    "yes": "Ya",
+    "no": "Tidak",
+    "cancel": "Batal",
+    "save": "Simpan",
+    "back": "Kembali"
+  },
+  "home": {
+    "title-page": "Kontak"
+  },
+  "add-new-contact": {
+    "first-name": "Nama Depan",
+    "last-name": "Nama Belakang",
+    "age": "Umur"
+  },
+  "modal": {
+    "add-photo": {
+      "select-photo": "Pilih Foto",
+      "from-gallery": "Dari Galeri",
+      "from-camera": "Dari Kamera"
+    }
+  },
+  "messages": {
+    "success-add-contact": "Kontak berhasil disimpan",
+    "error-general": "Aduh! Gagal menjalankan tugas",
+    "error-field-not-filled": "Mohon lengkapi data terlebih dahulu"
+  }
+}

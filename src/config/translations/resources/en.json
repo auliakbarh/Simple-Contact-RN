@@ -1,0 +1,32 @@
+{
+  "screen-name": {
+    "HOME_PAGE": "Home",
+    "ADD_NEW_CONTACT_PAGE": "Add New Contact"
+  },
+  "general": {
+    "name-app": "Simple Contacts App",
+    "yes": "Yes",
+    "no": "No",
+    "cancel": "Cancel",
+    "save": "Save",
+    "back": "Back"
+  },
+  "home": {
+    "title-page": "Contacts"
+  },
+  "add-new-contact": {
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "age": "Age"
+  },
+  "modal-add-photo": {
+    "select-photo": "Select Photo",
+    "from-gallery": "From Gallery",
+    "from-camera": "From Camera"
+  },
+  "messages": {
+    "success-add-contact": "Contact saved",
+    "error-general": "Oops! The operation can't be done",
+    "error-field-not-filled": "Fill the required fields"
+  }
+}
