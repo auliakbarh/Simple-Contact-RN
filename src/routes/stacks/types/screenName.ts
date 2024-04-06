@@ -1,0 +1,4 @@
+export enum SCREEN_NAME {
+    'HOME_PAGE' = 'HOME_PAGE',
+    'ADD_NEW_CONTACT_PAGE' = 'ADD_NEW_CONTACT_PAGE',
+}
