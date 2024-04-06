@@ -9,4 +9,5 @@ export interface IContactListUiProps {
   colorScheme: RnColorScheme
   refModal: React.MutableRefObject<IBottomSheetDetailContactMethod | null>
   onPressDelete: (id: string) => void
+  isLoading: boolean
 }

@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "2.2.1",
     "axios": "1.6.8",
     "expo": "~50.0.14",
+    "expo-linear-gradient": "^12.7.2",
     "expo-status-bar": "~1.11.1",
     "i18next": "23.10.1",
     "intl-pluralrules": "2.0.1",

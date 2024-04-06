@@ -26,12 +26,12 @@ export const injectPropsContactList: HOC<IContactListUiProps> = (Component) => (
     }
   }, [colorScheme, setColorSchemeTw])
 
-  const { data } = useGetAllListQuery()
+  const { data, isFetching } = useGetAllListQuery()
   const [deleteContact] = useDeleteMutation()
 
   const onPressDelete = useCallback((id: string) => {
     deleteContact(id)
   }, [])
 
-  return <Component {...props} data={data?.data ?? []} toggleTheme={toggleTheme} colorScheme={colorScheme} refModal={refModal} onPressDelete={onPressDelete} />;
+  return <Component {...props} data={data?.data ?? []} toggleTheme={toggleTheme} colorScheme={colorScheme} refModal={refModal} onPressDelete={onPressDelete} isLoading={isFetching} />;
 }

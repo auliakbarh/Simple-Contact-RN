@@ -10,9 +10,9 @@ import {createSectionListArray} from "@/features/home/utils/function";
 import {navigation} from "@/routes/Navigation";
 import {SCREEN_NAME} from "@/routes/stacks/types/screenName";
 import {IContactListUiProps} from "@/features/home/types/home";
-import {BottomSheetDetailContact} from "@/features/home/components";
+import {BottomSheetDetailContact, Loader} from "@/features/home/components";
 
-export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme, colorScheme, refModal, onPressDelete}) => {
+export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme, colorScheme, refModal, onPressDelete, isLoading}) => {
   const {t} = useTranslation('home')
   const colorFill = useColor('fill')
 
@@ -44,35 +44,37 @@ export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme,
             {t('title-page')}
           </Typography>
         </View>
-        <SectionList
-          sections={sections}
-          keyExtractor={item => item.id}
-          style={tw`mb-10`}
-          contentContainerStyle={tw`p-4`}
-          renderSectionHeader={({section: {title}}) => {
-            return (
-              <View style={tw`bg-green dark:bg-orange p-2 rounded-t-4`}>
-                <Typography style={tw`text-h3 font-bold`}>{title}</Typography>
-              </View>
-            )
-          }}
-          renderSectionFooter={() => <View style={tw`h-4`}/>}
-          renderItem={({item, section: {data}, index}) => {
-            return (
-              <View
-                style={tw.style(`px-2 py-4 bg-neutral dark:bg-darkGray`, index === sections.length - 1 ? 'rounded-b-4' : '')}>
-                <TouchableOpacity onPress={() => refModal.current?.present?.(item)}>
-                  <Typography
-                    style={tw`text-body-lg`}>{item.firstName + (item.lastName ? ` ${item.lastName}` : '')}</Typography>
-                </TouchableOpacity>
-              </View>
-            )
-          }}
-          ItemSeparatorComponent={() => <View style={tw`h-[${StyleSheet.hairlineWidth}px]`}/>}
-          ListFooterComponent={() => <View style={tw`h-40 pt-4`}><View
-            style={tw`h-[1px] bg-black dark:bg-neutral w-10 self-center`}/></View>}
-          ListEmptyComponent={() => <View style={tw`fill center mt-30`}><AntDesign name="contacts" size={40} color={colorFill} /></View>}
-        />
+        <Loader loading={isLoading}>
+          <SectionList
+            sections={sections}
+            keyExtractor={item => item.id}
+            style={tw`mb-10`}
+            contentContainerStyle={tw`p-4`}
+            renderSectionHeader={({section: {title}}) => {
+              return (
+                <View style={tw`bg-green dark:bg-orange p-2 rounded-t-4`}>
+                  <Typography style={tw`text-h3 font-bold`}>{title}</Typography>
+                </View>
+              )
+            }}
+            renderSectionFooter={() => <View style={tw`h-4`}/>}
+            renderItem={({item, section: {data}, index}) => {
+              return (
+                <View
+                  style={tw.style(`px-2 py-4 bg-neutral dark:bg-darkGray`, index === sections.length - 1 ? 'rounded-b-4' : '')}>
+                  <TouchableOpacity onPress={() => refModal.current?.present?.(item)}>
+                    <Typography
+                      style={tw`text-body-lg`}>{item.firstName + (item.lastName ? ` ${item.lastName}` : '')}</Typography>
+                  </TouchableOpacity>
+                </View>
+              )
+            }}
+            ItemSeparatorComponent={() => <View style={tw`h-[${StyleSheet.hairlineWidth}px]`}/>}
+            ListFooterComponent={() => <View style={tw`h-40 pt-4`}><View
+              style={tw`h-[1px] bg-black dark:bg-neutral w-10 self-center`}/></View>}
+            ListEmptyComponent={() => <View style={tw`fill center mt-30`}><AntDesign name="contacts" size={40} color={colorFill} /></View>}
+          />
+        </Loader>
       </View>
       <BottomSheetDetailContact ref={refModal} onPressDelete={onPressDelete} />
     </SafeArea>

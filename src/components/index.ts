@@ -1,5 +1,6 @@
 // atom
 export * from '@/components/atom/Typography'
+export * from '@/components/atom/ShimmerPlaceholder'
 
 // molecule
 export * from '@/components/molecule/Header'
