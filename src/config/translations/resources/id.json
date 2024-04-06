@@ -29,6 +29,7 @@
   "messages": {
     "success-add-contact": "Kontak berhasil disimpan",
     "error-general": "Aduh! Gagal menjalankan tugas",
-    "error-field-not-filled": "Mohon lengkapi data terlebih dahulu"
+    "error-field-not-filled": "Mohon lengkapi data terlebih dahulu",
+    "error-invalid-contact": "Kontak tidak sesuai"
   }
 }

@@ -10,8 +10,9 @@ import {createSectionListArray} from "@/features/home/utils/function";
 import {navigation} from "@/routes/Navigation";
 import {SCREEN_NAME} from "@/routes/stacks/types/screenName";
 import {IContactListUiProps} from "@/features/home/types/home";
+import {BottomSheetDetailContact} from "@/features/home/components";
 
-export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme, colorScheme}) => {
+export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme, colorScheme, refModal}) => {
   const {t} = useTranslation('home')
   const colorFill = useColor('fill')
 
@@ -60,7 +61,7 @@ export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme,
             return (
               <View
                 style={tw.style(`px-2 py-4 bg-neutral dark:bg-darkGray`, index === data.length - 1 ? 'rounded-b-4' : '')}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => refModal.current?.present?.(item)}>
                   <Typography
                     style={tw`text-body-lg`}>{item.firstName + (item.lastName ? ` ${item.lastName}` : '')}</Typography>
                 </TouchableOpacity>
@@ -72,6 +73,7 @@ export const ContactListUI: React.FC<IContactListUiProps> = ({data, toggleTheme,
             style={tw`h-[1px] bg-black dark:bg-neutral w-10 self-center`}/></View>}
         />
       </View>
+      <BottomSheetDetailContact ref={refModal} />
     </SafeArea>
   )
 }

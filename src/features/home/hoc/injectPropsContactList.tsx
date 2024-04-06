@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useRef} from "react";
 import {useAppColorScheme} from "twrnc";
 
 import {useAppDispatch} from "@/store/store";
@@ -6,10 +6,12 @@ import {tw} from "@/config";
 import {setColorScheme} from "@/store/slice/setting";
 import {IContactListUiProps} from "@/features/home/types/home";
 import {useGetAllListQuery} from "@/store/service/contact";
+import {IBottomSheetDetailContactMethod} from "@/features/home/components";
 
 export const injectPropsContactList: HOC<IContactListUiProps> = (Component) => (props) => {
   const dispatch = useAppDispatch();
   const [colorScheme, , setColorSchemeTw] = useAppColorScheme(tw);
+  const refModal = useRef<IBottomSheetDetailContactMethod | null>(null)
 
   const toggleTheme = useCallback(() => {
     switch (colorScheme) {
@@ -26,7 +28,5 @@ export const injectPropsContactList: HOC<IContactListUiProps> = (Component) => (
 
   const { data } = useGetAllListQuery()
 
-  // console.log('data', data)
-
-  return <Component {...props} data={data?.data ?? []} toggleTheme={toggleTheme} colorScheme={colorScheme} />;
+  return <Component {...props} data={data?.data ?? []} toggleTheme={toggleTheme} colorScheme={colorScheme} refModal={refModal} />;
 }

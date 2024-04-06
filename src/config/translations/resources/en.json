@@ -27,6 +27,7 @@
   "messages": {
     "success-add-contact": "Contact saved",
     "error-general": "Oops! The operation can't be done",
-    "error-field-not-filled": "Fill the required fields"
+    "error-field-not-filled": "Fill the required fields",
+    "error-invalid-contact": "Invalid contact"
   }
 }
