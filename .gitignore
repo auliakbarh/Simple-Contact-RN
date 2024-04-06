@@ -71,6 +71,7 @@ local.properties
 *.hprof
 .cxx/
 release.keystore
+android/app/release
 
 
 # Ruby / CocoaPods
