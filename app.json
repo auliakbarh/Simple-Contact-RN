@@ -28,6 +28,19 @@
     "web": {
       "bundler": "webpack",
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "./plugins/withAndroidApplicationAttributes",
+        {
+          "android:usesCleartextTraffic": false
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "80f014f7-d4bf-49da-a073-609ab4ceeb22"
+      }
     }
   }
 }
