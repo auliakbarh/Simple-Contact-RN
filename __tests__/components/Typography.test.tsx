@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import Renderer from 'react-test-renderer'
 import {Typography} from "@/components"
 import {store} from "@/store/store";
+import {expect} from '@jest/globals';
 
 describe('<Typography />', () => {
   it('renders correctly', () => {

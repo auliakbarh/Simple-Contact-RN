@@ -5,6 +5,7 @@ import {Header} from "@/components";
 import {store} from "@/store/store";
 import {Provider} from "react-redux";
 import {Text} from "react-native";
+import {expect} from '@jest/globals';
 
 
 describe('<Header />', () => {

@@ -6,6 +6,7 @@ import {store} from "@/store/store";
 import {Provider} from "react-redux";
 import {SafeAreaProvider} from "react-native-safe-area-context";
 import {View,Text} from "react-native";
+import {expect} from '@jest/globals';
 
 describe('<SafeArea />', () => {
   const tree = render(
