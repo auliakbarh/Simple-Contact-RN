@@ -99,8 +99,8 @@ export const BottomSheetDetailContact = React.forwardRef<IBottomSheetDetailConta
                       return (
                         <React.Fragment key={key}>
                           <View style={tw`row items-center`}>
-                            <Typography style={tw`text-h-3 font-bold flex-1 mr-6`}>{fields[key as keyof typeof fields]}:</Typography>
-                            <Typography style={tw`text-h-3 flex-3`}>{detail[key as keyof IContact]}</Typography>
+                            <Typography style={tw`text-body font-bold flex-1 mr-6`}>{fields[key as keyof typeof fields]}:</Typography>
+                            <Typography style={tw`text-body flex-3`}>{detail[key as keyof IContact]}</Typography>
                           </View>
                           {index < Object.keys(fields).length - 1 && (<View style={tw`h-5`} />)}
                         </React.Fragment>

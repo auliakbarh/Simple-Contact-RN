@@ -39,7 +39,7 @@ export const Avatar: React.FC<IAvatarProps> = ({firstName, lastName, photoUrl}) 
     src !== undefined
       ? <Image src={src} style={styles} onError={() => { setUri(undefined) }}/>
       : <View style={styles}>
-        <Typography style={tw`text-[72px] bold`}>{initials}</Typography>
+        <Typography style={tw`text-[72px] font-bold`}>{initials}</Typography>
       </View>
   )
 }
