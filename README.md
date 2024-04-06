@@ -28,7 +28,7 @@ Create simple crud contact apps
 
 ## Development Environment Version
 
-- node: v16.20.2
+- node: v16.20.2 / v21.2.0
 - pod: v1.15.2
 - bun: v1.0.35
 - gem: v3.1.6
@@ -70,3 +70,7 @@ To run test and coverage, use `jest`
 ```shell
 jest
 ```
+
+## Preview
+
+![preview-app.gif](./assets/preview-app.gif)
