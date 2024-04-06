@@ -1,11 +1,15 @@
 import React from 'react'
 
 import App from '../src/App'
-import { render } from '@testing-library/react-native'
+import {render} from '@testing-library/react-native'
 
 describe('<App />', () => {
+  const tree = render(<App/>)
   it('can be rendered successfully', () => {
-    const tree = render(<App />)
     expect(tree).not.toBeNull()
+  })
+
+  it('renders correctly', () => {
+    expect(tree).toMatchSnapshot()
   })
 })

@@ -77,8 +77,14 @@ export const Header: React.FC<IHeaderProps> = ({title, canGoBack, rightComponent
     <View
       style={tw.style(`row items-center p-4 border-b-[${StyleSheet.hairlineWidth}px] border-gray dark:border-smoke`)}>
       {renderLeftComponent ?? <View/>}
-      {screenName && <View style={tw`flex-4`}><Typography
-          style={tw.style('text-body-lg font-bold', titlePosition === 'center' ? 'text-center center' : '')}>{screenName}</Typography></View>}
+      {screenName && (
+        <View style={tw`flex-4`}>
+          <Typography
+            style={tw.style('text-body-lg font-bold', titlePosition === 'center' ? 'text-center center' : '')}>
+            {screenName}
+          </Typography>
+        </View>
+      )}
       {renderRightComponent}
     </View>
   )
