@@ -1,23 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { registerRootComponent } from "expo";
+import {registerRootComponent} from "expo";
+import {StatusBar} from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import {SafeAreaProvider} from "react-native-safe-area-context";
+import {RootSiblingParent} from 'react-native-root-siblings';
+import {Provider} from "react-redux";
 
-export default function App() {
+import "@/config/translations";
+import {store} from "@/store/store";
+import {AppWrapper} from "@/components";
+import {AppStack} from "@/routes";
+import {navigation} from "@/routes/Navigation";
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <Provider store={store}>
+        <StatusBar style="auto"/>
+        <RootSiblingParent>
+          <NavigationContainer ref={navigation.navigationRef}>
+            <AppWrapper>
+              <AppStack />
+            </AppWrapper>
+          </NavigationContainer>
+        </RootSiblingParent>
+      </Provider>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 registerRootComponent(App)
