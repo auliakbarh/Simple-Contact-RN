@@ -74,3 +74,8 @@ jest
 ## Preview
 
 ![preview-app.gif](./assets/preview-app.gif)
+
+
+## APK
+
+[build-1712394800156.apk](./build-1712394800156.apk)
